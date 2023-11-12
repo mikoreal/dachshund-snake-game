@@ -8,12 +8,11 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server",
-    "deploy": "gh-pages -d dist"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RodionChachura/rust-js-snake-game.git"
+    "url": "git+https://github.com/rustwasm/create-wasm-app.git"
   },
   "keywords": [
     "webassembly",
@@ -24,18 +23,18 @@
   "author": "Ashley Williams <ashley666ashley@gmail.com>",
   "license": "(MIT OR Apache-2.0)",
   "bugs": {
-    "url": "https://github.com/RodionChachura/rust-js-snake-game/issues"
+    "url": "https://github.com/rustwasm/create-wasm-app/issues"
   },
-  "homepage": "https://github.com/RodionChachura/rust-js-snake-game#readme",
-  "dependencies": {
-    "wasm-snake-game": "file:../pkg"
-  },
+  "homepage": "https://github.com/rustwasm/create-wasm-app#readme",
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.0",
-    "gh-pages": "^2.2.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "file-loader": "^6.2.0",
     "hello-wasm-pack": "^0.1.0",
-    "webpack": "^4.29.3",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "rust-js-dachshund-game": "file:../pkg"
   }
 }

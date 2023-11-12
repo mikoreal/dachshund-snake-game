@@ -1,24 +1,27 @@
-import { Movement } from "wasm-snake-game";
+import { Movement } from 'rust-js-dachshund-game'
 
 const MOVEMENT_KEYS = {
-  [Movement.TOP]: [87, 38],
-  [Movement.RIGHT]: [68, 39],
-  [Movement.DOWN]: [83, 40],
-  [Movement.LEFT]: [65, 37]
+    [Movement.TOP]: ['W', 'ArrowUp'],
+    [Movement.DOWN]: ['S', 'ArrowDown'],
+    [Movement.LEFT]: ['A', 'ArrowLeft'],
+    [Movement.RIGHT]: ['D', 'ArrowRight']
 }
 
-const STOP_KEY = 32
+const STOP_KEY = ' '
 
 export class Controller {
-  constructor(onStop = () => {}) {
-    window.addEventListener('keydown', ({ which }) => {
-      this.movement = Object.keys(MOVEMENT_KEYS).find(key => MOVEMENT_KEYS[key].includes(which))
-    })
-    window.addEventListener('keyup', ({ which }) => {
-      this.movement = undefined
-      if (which === STOP_KEY) {
-        onStop()
-      }
-    })
-  }
+    constructor(onStop = () => {}) {
+        window.addEventListener('keydown', (event) => {
+            this.movement = Object.entries(MOVEMENT_KEYS).find(([_, keys]) => keys.includes(event.key))?.[0];
+            //console.log(this.movement)
+        })
+        window.addEventListener('keyup', (event) => {
+            console.log(event.key)
+            this.movement = undefined
+            if (event.key === STOP_KEY) {
+                onStop()
+                console.log("space");
+            }
+        })
+    }
 }
